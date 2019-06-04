@@ -1,3 +1,10 @@
+<p align="center">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+    <img src="https://img.shields.io/badge/Spring%20Cloud-Greenwich.RELEASE-blue.svg" alt="Coverage Status">
+    <img src="https://img.shields.io/badge/Spring%20Boot-2.1.4.RELEASE-blue.svg" alt="Downloads">
+</p>  
+
+
 # easy-cloud（spring cloud 脚手架）
 
 ### Description
