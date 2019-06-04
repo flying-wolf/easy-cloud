@@ -1,0 +1,9 @@
+app:
+  id: easycloud-apm-admin
+server:
+  port: 8760
+spring:
+  application:
+    name: easycloud-apm-admin
+  profiles:
+    active: @activatedProperties@

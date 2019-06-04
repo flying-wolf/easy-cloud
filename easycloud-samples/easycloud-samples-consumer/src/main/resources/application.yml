@@ -1,0 +1,9 @@
+app:
+  id: easycloud-samples-consumer
+server:
+  port: 9080
+spring:
+  application:
+    name: easycloud-samples-consumer
+  profiles:
+    active: @activatedProperties@

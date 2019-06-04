@@ -1,0 +1,88 @@
+#Apollo配置
+apollo:
+  meta: http://localhost:8080  # apollo配置中心节点
+  #  cluster: SomeCluster # 指定集群
+  bootstrap:
+    enabled: false
+    namespaces: application,DEVBJ.REGISTER  # 配置命名空间
+    eagerLoad:
+      enabled: true
+
+#Admin相关配置
+spring:
+  security:
+    user:
+      name: ants
+      password: ants
+  boot:
+    #邮箱配置
+    mail:
+      host: smtp.163.com   # qq邮箱服务器主机host，需要在QQ邮箱设置中开启smtp协议 163邮箱为smtp.163.com
+      username: xxxx@163.com
+      password: xxxx
+      default-encoding: UTF-8
+      properties:
+        mail:
+          debug: false
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+              required: true
+            ssl:
+              enable: true
+    #admin配置
+    admin:
+      ui:
+        title: Super.M EasyCloud AMP Admin
+        brand: "<img src=\"assets/img/icon-spring-boot-admin.svg\"><span>Super.M EasyCloud AMP Admin</span>"
+      notify: #状态告警通知
+        dingtalk: #自定义钉钉告警
+          enabled: true
+          webhook-url: https://oapi.dingtalk.com/robot/send?access_token=123eb7d0f7a00b02a7a5ca95a8db5140c7c677a87662702608f59c93b1b74173
+          at-mobiles: ["1371664xxxx"] #需要@用户的手机号
+          is-at-all: false #是否@所有人
+        mail: #邮件告警通知
+          from: xxxx@163.com
+          to: ["xxxx@xxx.com"]
+          enabled: false
+
+
+#Eureka注册中心配置
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+    leaseRenewalIntervalInSeconds: 30
+    health-check-url-path: /actuator/health
+    #spring boot admin设置权限，故需要通过账号密码获取注册信息
+    metadata-map:
+      user.name: ants
+      user.password: ants
+  client:
+    registryFetchIntervalSeconds: 15
+    service-url:
+      defaultZone: http://ants:ants@127.0.0.1:8761/eureka/
+
+
+# 监控跟踪配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+
+# 日志文件配置
+logging:
+  path: /usr/local/var/log/${spring.application.name}.log
+  file:
+    max-size: 10MB
+    max-history: 100
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+
+
+

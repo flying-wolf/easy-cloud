@@ -1,0 +1,9 @@
+app:
+  id: easycloud-gateway
+server:
+  port: 9090
+spring:
+  application:
+    name: easycloud-gateway
+  profiles:
+    active: @activatedProperties@

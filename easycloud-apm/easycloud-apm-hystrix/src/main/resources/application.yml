@@ -1,0 +1,9 @@
+app:
+  id: easycloud-amp-hystrix
+server:
+  port: 9100
+spring:
+  application:
+    name: easycloud-amp-hystrix
+  profiles:
+    active: @activatedProperties@

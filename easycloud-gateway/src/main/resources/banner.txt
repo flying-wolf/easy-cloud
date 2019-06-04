@@ -1,0 +1,26 @@
+${AnsiColor.BRIGHT_YELLOW}
+
+                      iiii                                                                iiii
+                     i::::i                                                              i::::i
+                      iiii                                                                iiii
+
+xxxxxxx      xxxxxxxiiiiiii   aaaaaaaaaaaaa      ooooooooooo   yyyyyyy           yyyyyyyiiiiiii             cccccccccccccccc   ooooooooooo      mmmmmmm    mmmmmmm
+ x:::::x    x:::::x i:::::i   a::::::::::::a   oo:::::::::::oo  y:::::y         y:::::y i:::::i           cc:::::::::::::::c oo:::::::::::oo  mm:::::::m  m:::::::mm
+  x:::::x  x:::::x   i::::i   aaaaaaaaa:::::a o:::::::::::::::o  y:::::y       y:::::y   i::::i          c:::::::::::::::::co:::::::::::::::om::::::::::mm::::::::::m
+   x:::::xx:::::x    i::::i            a::::a o:::::ooooo:::::o   y:::::y     y:::::y    i::::i         c:::::::cccccc:::::co:::::ooooo:::::om::::::::::::::::::::::m
+    x::::::::::x     i::::i     aaaaaaa:::::a o::::o     o::::o    y:::::y   y:::::y     i::::i         c::::::c     ccccccco::::o     o::::om:::::mmm::::::mmm:::::m
+     x::::::::x      i::::i   aa::::::::::::a o::::o     o::::o     y:::::y y:::::y      i::::i         c:::::c             o::::o     o::::om::::m   m::::m   m::::m
+     x::::::::x      i::::i  a::::aaaa::::::a o::::o     o::::o      y:::::y:::::y       i::::i         c:::::c             o::::o     o::::om::::m   m::::m   m::::m
+    x::::::::::x     i::::i a::::a    a:::::a o::::o     o::::o       y:::::::::y        i::::i         c::::::c     ccccccco::::o     o::::om::::m   m::::m   m::::m
+   x:::::xx:::::x   i::::::ia::::a    a:::::a o:::::ooooo:::::o        y:::::::y        i::::::i        c:::::::cccccc:::::co:::::ooooo:::::om::::m   m::::m   m::::m
+  x:::::x  x:::::x  i::::::ia:::::aaaa::::::a o:::::::::::::::o         y:::::y         i::::::i ......  c:::::::::::::::::co:::::::::::::::om::::m   m::::m   m::::m
+ x:::::x    x:::::x i::::::i a::::::::::aa:::a oo:::::::::::oo         y:::::y          i::::::i .::::.   cc:::::::::::::::c oo:::::::::::oo m::::m   m::::m   m::::m
+xxxxxxx      xxxxxxxiiiiiiii  aaaaaaaaaa  aaaa   ooooooooooo          y:::::y           iiiiiiii ......     cccccccccccccccc   ooooooooooo   mmmmmm   mmmmmm   mmmmmm
+                                                                     y:::::y
+                                                                    y:::::y
+                                                                   y:::::y
+                                                                  y:::::y
+                                                                 yyyyyyy
+${AnsiColor.BRIGHT_RED}
+${application.title} - ${application.formatted-version}
+

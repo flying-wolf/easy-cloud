@@ -1,0 +1,63 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: easycloud-registry
+  security:
+    user:
+      name: ants
+      password: ants
+
+##注册中心配置
+eureka:
+  #Eureka实例配置
+  instance:
+    health-check-url-path: /actuator/health
+    instance-id: ${spring.application.name}:${server.post}:${random.value} #实例ID
+    lease-renewal-interval-in-seconds: 30 #该实例给服务中心发送心跳的间隔时间
+    prefer-ip-address: true   #优先使用IP
+    lease-expiration-duration-in-seconds: 45  #服务中心删除此服务实例的等待时间(秒为单位),时间间隔为最后一次服务中心接受到的心跳时间
+  #Eureka服务端配置
+  server:
+    enable-self-preservation: false   #关闭自我保护
+    eviction-interval-timer-in-ms: 30000  #清除无效服务的时间间隔
+  #Eureka客户端配置
+  client:
+    register-with-eureka: false #关闭服务注册，集群环境需开启
+    fetch-registry: false       #关闭拉取注册表
+    registry-fetch-interval-seconds: 30   #拉取注册表的时间间隔
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${HOST_ADDRESS:localhost}:${server.port}/eureka/
+
+
+#监控跟踪配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+
+# 日志文件配置
+logging:
+  path: /usr/local/var/log/${spring.application.name}.log
+  file:
+    max-size: 10MB
+    max-history: 100
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+
+
+
+#Apollo配置中心
+apollo:
+  meta: http://localhost:8080  # apollo配置中心节点
+  #  cluster: SomeCluster # 指定集群
+  bootstrap:
+    enabled: false
+    namespaces: application,DEVBJ.REGISTER  # 配置命名空间
+    eagerLoad:
+      enabled: false

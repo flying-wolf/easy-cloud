@@ -1,0 +1,9 @@
+app:
+  id: easycloud-registry
+server:
+  port: 8761
+spring:
+  application:
+    name: easycloud-registry
+  profiles:
+    active: @activatedProperties@

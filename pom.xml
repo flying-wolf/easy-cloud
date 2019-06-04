@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Inherited from SpringBoot provided by the parent project -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- easy-cloud parent class engineering basic information -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.superm.easy.cloud</groupId>
+	<artifactId>easy-cloud</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>EasyCloud</name>
+	<description>EasyCloud project for SpringCloud demo</description>
+
+	<!-- Version management -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+		<spring-boot-admin.version>2.1.4</spring-boot-admin.version>
+		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+		<spring-cloud-netflix.version>2.1.1.RELEASE</spring-cloud-netflix.version>
+		<spring-cloud-sleuth.version>2.1.1.RELEASE</spring-cloud-sleuth.version>
+		<spring-cloud-stream.version>Fishtown.RELEASE</spring-cloud-stream.version>
+
+
+	</properties>
+
+	<!-- Statement of easy-cloud engineering child module -->
+	<modules>
+		<module>easycloud-dependencies</module>
+		<module>easycloud-starter-quick</module>
+		<module>easycloud-starter-sleuth</module>
+		<module>easycloud-starter-datasource</module>
+		<module>easycloud-registry</module>
+		<module>easycloud-gateway</module>
+		<module>easycloud-apm</module>
+		<module>easycloud-commons</module>
+		<module>easycloud-samples</module>
+		<module>easycloud-modules</module>
+	</modules>
+
+	<!-- The unified administration of dependencies -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-netflix-dependencies</artifactId>
+				<version>${spring-cloud-netflix.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-dependencies</artifactId>
+                <version>${spring-cloud-sleuth.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+            </dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-stream-dependencies</artifactId>
+				<version>${spring-cloud-stream.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.superm.easy.cloud</groupId>
+				<artifactId>easycloud-dependencies</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<!--<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Super.M release</name>
+			<url>http://192.168.32.252:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Super.M snapshot</name>
+			<url>http://192.168.32.252:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>-->
+
+	<!-- Plug-in management -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>build-info</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<includeSystemScope>true</includeSystemScope>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

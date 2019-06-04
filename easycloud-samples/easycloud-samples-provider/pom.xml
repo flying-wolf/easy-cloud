@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.superm.easy.cloud</groupId>
+		<artifactId>easycloud-samples</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>easycloud-samples-provider</artifactId>
+	<packaging>jar</packaging>
+	<name>EasyCloud-Samples-Provider</name>
+	<description>EasyCloud-Samples-Provider project is service provider demo for EasyCloud</description>
+
+	<dependencies>
+		<!-- 快速构建依赖包 -->
+		<dependency>
+			<groupId>com.superm.easy.cloud</groupId>
+			<artifactId>easycloud-starter-quick</artifactId>
+		</dependency>
+
+		<!-- 监控相关组件 -->
+		<dependency>
+			<groupId>com.superm.easy.cloud</groupId>
+			<artifactId>easycloud-starter-sleuth</artifactId>
+		</dependency>
+
+		<!-- okHttp3依赖 -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+
+	<profiles>
+		<profile>
+			<id>DEV</id>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>FAT</id>
+			<properties>
+				<activatedProperties>fat</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>bootstrap.yml</include>
+					<include>application.yml</include>
+					<include>application-${activatedProperties}.yml</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

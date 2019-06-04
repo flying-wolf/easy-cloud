@@ -1,0 +1,71 @@
+# Apollo配置
+apollo:
+  meta: http://localhost:8080  # apollo配置中心节点
+  #  cluster: SomeCluster # 指定集群
+  bootstrap:
+    enabled: false
+    namespaces: application,DEVBJ.REGISTER,BEVBJ.STREAM  # 配置命名空间
+    eagerLoad:
+      enabled: true
+
+# Sleuth stream配置
+spring:
+  zipkin:
+    sender:
+      type: kafka
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+    stream:
+      bindings:
+        zipkinStreamInput:
+          destination: zipkin
+          binder: kafka
+      binders:
+        kafka:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: 127.0.0.1:9092
+                      zkNodes: 127.0.0.1:2181
+      default-binder: kafka
+
+# Eureka配置
+eureka:
+  instance:
+    health-check-url-path: /actuator/health
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+  client:
+    service-url:
+      defaultZone: http://ants:ants@127.0.0.1:8761/eureka/
+
+# OpenFeign配置
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: true
+
+# 日志文件配置
+logging:
+  path: /usr/local/var/log/${spring.application.name}.log
+  file:
+    max-size: 10MB
+    max-history: 100
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+
+# 监控跟踪
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

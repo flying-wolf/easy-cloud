@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.superm.easy.cloud</groupId>
+	<artifactId>easycloud-dependencies</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>EasyCloud-Dependencies</name>
+	<description>EasyCloud-Dependencies Project is Dependencies For EasyCloud</description>
+
+	<!-- 依赖版本管理 -->
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jackson.version>2.9.8</jackson.version>
+		<apache.httpcomponents.version>4.5.4</apache.httpcomponents.version>
+		<commons-codec.version>1.12</commons-codec.version>
+		<commons-lang3.version>3.8.1</commons-lang3.version>
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		<kotlin.version>1.3.30</kotlin.version>
+		<apollo.version>1.3.0</apollo.version>
+		<jasypt-spring-boot.version>2.1.1</jasypt-spring-boot.version>
+		<okhttp.version>3.14.1</okhttp.version>
+		<mybatis-plus.version>3.1.1</mybatis-plus.version>
+		<alibaba-druid.version>1.1.10</alibaba-druid.version>
+		<alibaba-fastjson.version>1.2.58</alibaba-fastjson.version>
+		<mysql-connector.version>8.0.16</mysql-connector.version>
+		<velocity-engine.version>2.1</velocity-engine.version>
+		<json.version>20180813</json.version>
+
+		<jedis.version>2.9.3</jedis.version>
+		<bcprov-jdk15on.version>1.61</bcprov-jdk15on.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.superm.easy.cloud</groupId>
+				<artifactId>easycloud-starter-quick</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.superm.easy.cloud</groupId>
+				<artifactId>easycloud-starter-sleuth</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.superm.easy.cloud</groupId>
+				<artifactId>easycloud-starter-datasource</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.superm.easy.cloud</groupId>
+				<artifactId>easycloud-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<!-- apache.commons -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<!-- http client -->
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons-httpclient.version}</version>
+			</dependency>
+			<!-- fasterxml.jackson -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<!-- Kotlin extension -->
+			<dependency>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-stdlib</artifactId>
+				<version>${kotlin.version}</version>
+				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-reflect</artifactId>
+				<version>${kotlin.version}</version>
+				<optional>true</optional>
+			</dependency>
+
+			<!-- apollo extension -->
+			<dependency>
+				<groupId>com.ctrip.framework.apollo</groupId>
+				<artifactId>apollo-client</artifactId>
+				<version>${apollo.version}</version>
+			</dependency>
+
+			<!-- jasypt extension -->
+			<dependency>
+				<groupId>com.github.ulisesbocchio</groupId>
+				<artifactId>jasypt-spring-boot-starter</artifactId>
+				<version>${jasypt-spring-boot.version}</version>
+			</dependency>
+
+			<!-- okHttp -->
+			<dependency>
+				<groupId>com.squareup.okhttp3</groupId>
+				<artifactId>okhttp</artifactId>
+				<version>${okhttp.version}</version>
+			</dependency>
+
+			<!-- data source -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${alibaba-druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${velocity-engine.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba-fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${jedis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bcprov-jdk15on.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<!--<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>super.m release</name>
+			<url>http://192.168.32.252:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>super.m snapshot</name>
+			<url>http://192.168.32.252:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>-->
+
+</project>

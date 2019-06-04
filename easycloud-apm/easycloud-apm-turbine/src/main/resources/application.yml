@@ -1,0 +1,9 @@
+app:
+  id: easycloud-amp-turbine
+server:
+  port: 9900
+spring:
+  application:
+    name: easycloud-amp-turbine
+  profiles:
+    active: @activatedProperties@

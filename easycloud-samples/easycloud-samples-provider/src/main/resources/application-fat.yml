@@ -1,0 +1,9 @@
+# Apollo配置
+apollo:
+  meta: http://172.17.1.5:8080  # apollo配置中心节点
+  #  cluster: SomeCluster # 指定集群
+  bootstrap:
+    enabled: true
+    namespaces: application,DEVBJ.REGISTER,DEVBJ.STREAM  # 配置命名空间
+    eagerLoad:
+      enabled: true
