@@ -44,6 +44,7 @@
 		<module>easycloud-commons</module>
 		<module>easycloud-samples</module>
 		<module>easycloud-modules</module>
+		<module>easycloud-auth</module>
 	</modules>
 
 	<!-- The unified administration of dependencies -->
