@@ -34,6 +34,7 @@
 
 		<jedis.version>2.9.3</jedis.version>
 		<bcprov-jdk15on.version>1.61</bcprov-jdk15on.version>
+		<security-jwt.version>1.0.9.RELEASE</security-jwt.version>
 	</properties>
 
 	<dependencyManagement>
@@ -172,6 +173,13 @@
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcprov-jdk15on</artifactId>
 				<version>${bcprov-jdk15on.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-jwt</artifactId>
+				<version>${security-jwt.version}</version>
 			</dependency>
 
 		</dependencies>
