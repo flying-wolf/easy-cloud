@@ -1,3 +1,4 @@
+/*
 package com.superm.easy.cloud.commons.config;
 
 import lombok.Getter;
@@ -5,12 +6,14 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+*/
 /**
  * @program: easy-cloud
  * @description:
  * @author: Chao.Ma
  * @create: 2019-05-28 17:44
- **/
+ **//*
+
 @Getter
 @Setter
 @Configuration
@@ -31,3 +34,4 @@ public class GlobalConfigProperties {
     private String country;
 
 }
+*/

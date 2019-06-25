@@ -1,8 +1,6 @@
 package com.superm.easy.cloud.commons.exception;
 
-/*
- * @author hu.sheng 2019/04/25
- */
+
 public class BaseException extends RuntimeException {
 
     private static final long serialVersionUID = -1760367626582900295L;

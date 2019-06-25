@@ -3,23 +3,18 @@ package com.superm.easy.cloud.commons.model;
 import com.superm.easy.cloud.commons.enums.ResponseMsg;
 import com.superm.easy.cloud.commons.exception.IMessage;
 import com.superm.easy.cloud.commons.util.StringUtils;
-import lombok.*;
+import lombok.ToString;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
 public class Resp<T> implements Serializable {
     private static final long serialVersionUID = 6635069770718516064L;
 
     /**
      * 响应代码
      */
-    protected String code;
+    public String code;
 
     /**
      * 响应信息
@@ -36,8 +31,56 @@ public class Resp<T> implements Serializable {
      */
     protected String timestamp;
 
+    public Resp() {
+    }
+
+    public Resp(String code, String message, String timestamp) {
+        this.code = code;
+        this.message = message;
+        this.timestamp = timestamp;
+    }
+
+    public Resp(String code, String message, T data, String timestamp) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+        this.timestamp = timestamp;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
     public Resp setResult(Object data) {
-        this.data = (T)data;
+        this.data = (T) data;
         return this;
     }
 
@@ -45,9 +88,9 @@ public class Resp<T> implements Serializable {
         return create(ResponseMsg.SUCCESS);
     }
 
-    /*public static Resp fail() {
-        return create(ResponseMsg.FAIL);
-    }*/
+    public static Resp failure() {
+        return create(ResponseMsg.CREATE_FAIL);
+    }
 
     public static Resp error() {
         return create(ResponseMsg.SERVER_ERROR);
@@ -66,15 +109,18 @@ public class Resp<T> implements Serializable {
     }
 
     public static Resp create(String code, String msg) {
-        return Resp.builder().code(code).message(msg).timestamp(String.valueOf(System.currentTimeMillis())).build();
+        return new Resp(code, msg, String.valueOf(System.currentTimeMillis()));
     }
 
-    public Resp toCreate(IMessage msg) {
-        return  toCreate(msg.getCode(), msg.getMessage());
+    public Resp toBuilder(IMessage msg) {
+        return this.toBuilder(msg.getCode(), msg.getMessage());
     }
 
-    public Resp toCreate(String code, String msg) {
-        return this.toBuilder().code(code).message(msg).timestamp(String.valueOf(System.currentTimeMillis())).build();
+    public Resp toBuilder(String code, String msg) {
+        this.setCode(code);
+        this.setMessage(msg);
+        this.setTimestamp(String.valueOf(System.currentTimeMillis()));
+        return this;
     }
 
 }
