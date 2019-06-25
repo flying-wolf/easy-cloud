@@ -42,7 +42,7 @@ public class Resp<T> implements Serializable {
     }
 
     public static Resp success() {
-        return create(ResponseMsg.V2_SUCCESS_CODE);
+        return create(ResponseMsg.SUCCESS);
     }
 
     /*public static Resp fail() {
@@ -50,7 +50,7 @@ public class Resp<T> implements Serializable {
     }*/
 
     public static Resp error() {
-        return create(ResponseMsg.EXCEPTION_CODE);
+        return create(ResponseMsg.SERVER_ERROR);
     }
 
     public static Resp create(IMessage msg) {

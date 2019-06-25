@@ -37,7 +37,7 @@ public class CustomExceptionHandler {
     @ResponseStatus(value = HttpStatus.OK)
     public Resp paramException(MissingServletRequestParameterException ex, WebRequest request) {
         log.error("param [ {} ] invalid in request {}!", ex.getParameterName(), request.getContextPath());
-        return Resp.create(ResponseMsg.V4_PARAM_INVALID_CODE, ex.getParameterName());
+        return Resp.create(ResponseMsg.PARAM_IS_INVALID, ex.getParameterName());
     }
 
 }
