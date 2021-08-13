@@ -33,7 +33,7 @@
 		<json.version>20180813</json.version>
 
 		<jedis.version>2.9.3</jedis.version>
-		<bcprov-jdk15on.version>1.61</bcprov-jdk15on.version>
+		<bcprov-jdk15on.version>1.67</bcprov-jdk15on.version>
 		<security-jwt.version>1.0.9.RELEASE</security-jwt.version>
 	</properties>
 
